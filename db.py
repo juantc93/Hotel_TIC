@@ -22,6 +22,11 @@ def obtener_lista_reservas():
         
     return lista_reservas
     
-#if (reservas[reserva][fecha_inicio]>fecha_inicial) and (reservas[reserva][fecha_final]<fecha_final) :
-            
+
+def crear_reserva(reserva: Reserva):
+    if  reserva.habitacion_id in reservas:
+        return False
+    else:
+        reservas[reserva.habitacion_id] = reserva
+        return True
 
