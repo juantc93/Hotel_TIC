@@ -12,7 +12,7 @@ app.add_middleware(
     CORSMiddleware,allow_origins=origins,
     allow_credentials=True, allow_methods=["*"],allow_headers=["*"],
 )
-@app.get("/reservas/ocupacion")
+@app.get("/reservas/ver-reservas")
 async def obtener_ocupacion():
     return db.obtener_lista_reservas()
 
@@ -23,4 +23,4 @@ async def crear_reserva(reserva: db.Reserva):
     if reserva_exitosa:
         return{"Mensaje": "Reservación creada con éxito"}
     else:
-        raise HTTPException(status_code=400, detail="No se pudo realziar la reservación")
+        raise HTTPException(status_code=400, detail="No se pudo realizar la reserva")
