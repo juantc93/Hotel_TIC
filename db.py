@@ -30,3 +30,11 @@ def crear_reserva(reserva: Reserva):
         reservas[reserva.habitacion_id] = reserva
         return True
 
+def eliminar_reserva(reserva:Reserva):
+    if  reserva.habitacion_id in reservas:
+        if reserva.usuario_id == reservas[reserva.habitacion_id].usuario_id:
+            reservas.pop(reserva.habitacion_id)
+            return True
+    else:
+        return False
+

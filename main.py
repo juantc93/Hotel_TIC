@@ -24,3 +24,12 @@ async def crear_reserva(reserva: db.Reserva):
         return{"Mensaje": "Reservación creada con éxito"}
     else:
         raise HTTPException(status_code=400, detail="No se pudo realizar la reserva")
+
+@app.delete("/reservas/eliminar")
+async def eliminar_reserva(reserva: db.Reserva):
+    operacion_exitosa = db.eliminar_reserva(reserva)
+    if operacion_exitosa:
+        return {"mensaje": "reserva eliminada correctamente"}
+    else:
+        raise HTTPException(
+            status_code=400, detail="Reserva no pudo ser eliminada")
